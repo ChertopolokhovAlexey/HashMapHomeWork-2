@@ -1,5 +1,8 @@
 //https://github.com/ChertopolokhovAlexey/HashMapHomeWork-2.git
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Main {
     static final String TEXT = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor" +
             " incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation" +
@@ -11,7 +14,9 @@ public class Main {
 
     public static void main(String[] args) {
         String request = REQUEST.toLowerCase();
-        WordsChecker wordsChecker = new WordsChecker(TEXT);
+        Set<String> set = new HashSet<>();
+
+        WordsChecker wordsChecker = new WordsChecker(TEXT, set);
         System.out.println(wordsChecker.hasWord(request));
     }
 
