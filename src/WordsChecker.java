@@ -1,19 +1,16 @@
-import java.util.Collections;
+import java.util.List;
 import java.util.Set;
-
+import java.util.HashSet;
 public class WordsChecker {
     protected String text;
-    protected Set<String> set;
+    Set<String> set;
 
-    public WordsChecker(String TEXT, Set<String> set) {
-        this.text = TEXT;
-        this.set = set;
+    public WordsChecker(String text) {
+        this.text = text.toLowerCase();
+        set = new HashSet<>(List.of(text.split("\\P{IsAlphabetic}+")));
     }
 
     public boolean hasWord(String request) {
-        text = (this.text).toLowerCase();
-        String[] textToArray = text.split("\\P{IsAlphabetic}+");
-        Collections.addAll(set, textToArray);
         return set.contains(request);
     }
 }
